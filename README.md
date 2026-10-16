@@ -1,0 +1,66 @@
+# ⛪ خادم حصة الشهيد أبانوب (Backend Server - Node.js & MongoDB Atlas)
+
+الخادم الخلفي الرسمي المتكامل لمنظومة **«حصة الشهيد أبانوب لخدمة إعدادي ومدرسة الألحان والطقس الكنسي»**.
+
+---
+
+## 🚀 متطلبات التشغيل
+- تثبيت [Node.js](https://nodejs.org/) (الإصدار 18 أو أحدث).
+- حساب مجاني على [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) أو تثبيت MongoDB محلياً.
+
+---
+
+## 🛠️ خطوات الإعداد والتشغيل السريع
+
+### 1. تثبيت الحزم والمكتبات
+افتح موجه الأوامر (Terminal / PowerShell) داخل مجلد `backend`:
+```bash
+npm install
+```
+
+### 2. ضبط ملف المتغيرات `.env`
+الملف موجود بالفعل باسم `.env`، قم بفتحه وتعديل رابط قاعدة بيانات MongoDB Atlas الخاص بك:
+```env
+PORT=5000
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/abanoub_church_db?retryWrites=true&w=majority
+```
+> [!NOTE]
+> إذا لم تكن قد أنشأت قاعدة بيانات على أطلس بعد، يمكنك تشغيل MongoDB محلياً على جهازك:
+> `MONGODB_URI=mongodb://localhost:27017/abanoub_church_db`
+
+### 3. تشغيل السيرفر
+```bash
+npm start
+```
+أو في وضع التطوير مع التحديث التلقائي:
+```bash
+npm run dev
+```
+
+---
+
+## 🌱 البذر التلقائي لقاعدة البيانات (Auto-Seeder)
+بمجرد اتصال السيرفر بـ MongoDB Atlas لأول مرة، سيقوم الخادم **تلقائياً** بزرع:
+- الحسابات الرسمية للخدام والمخدومين.
+- سجل مخدومي إعدادي الكامل.
+- مكتبة الألحان الناطقة ثلاثية النصوص.
+- مصفوفة حضور متعددة الأسابيع لشهر أكتوبر 2026.
+- جداول المواعيد والأنشطة والماليات والإعلانات.
+
+---
+
+## 📡 واجهات الـ RESTful API الرئيسية
+| الوظيفة | المسار (Endpoint) | الطريقة |
+| :--- | :--- | :---: |
+| فحص عمل السيرفر | `/api/health` | `GET` |
+| تسجيل الدخول | `/api/auth/login` | `POST` |
+| قائمة المخدومين | `/api/students` | `GET` / `POST` |
+| تسجيل الحضور اليومي | `/api/attendance` | `POST` |
+| التقرير اليومي المفصل | `/api/attendance/reports/daily` | `GET` |
+| التقرير الأسبوعي التحليلي | `/api/attendance/reports/weekly` | `GET` |
+| التقرير الشهري التراكمي | `/api/attendance/reports/monthly` | `GET` |
+| مكتبة الألحان | `/api/hymns` | `GET` / `POST` |
+| المواعيد والأنشطة | `/api/events` | `GET` / `POST` |
+| الخزينة والماليات | `/api/finances` | `GET` / `POST` |
+| الإعلانات والتنبيهات | `/api/announcements` | `GET` / `POST` |
+| النسخ الاحتياطي الشامل | `/api/backup/export` | `GET` |
