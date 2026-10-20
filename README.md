@@ -48,19 +48,3 @@ npm run dev
 - جداول المواعيد والأنشطة والماليات والإعلانات.
 
 ---
-
-## 📡 واجهات الـ RESTful API الرئيسية
-| الوظيفة | المسار (Endpoint) | الطريقة |
-| :--- | :--- | :---: |
-| فحص عمل السيرفر | `/api/health` | `GET` |
-| تسجيل الدخول | `/api/auth/login` | `POST` |
-| قائمة المخدومين | `/api/students` | `GET` / `POST` |
-| تسجيل الحضور اليومي | `/api/attendance` | `POST` |
-| التقرير اليومي المفصل | `/api/attendance/reports/daily` | `GET` |
-| التقرير الأسبوعي التحليلي | `/api/attendance/reports/weekly` | `GET` |
-| التقرير الشهري التراكمي | `/api/attendance/reports/monthly` | `GET` |
-| مكتبة الألحان | `/api/hymns` | `GET` / `POST` |
-| المواعيد والأنشطة | `/api/events` | `GET` / `POST` |
-| الخزينة والماليات | `/api/finances` | `GET` / `POST` |
-| الإعلانات والتنبيهات | `/api/announcements` | `GET` / `POST` |
-| النسخ الاحتياطي الشامل | `/api/backup/export` | `GET` |
